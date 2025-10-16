@@ -22,6 +22,7 @@ void WordCounter::processFile(std::string inputFilename) {
     while (std::getline(inputFile, line)) {
         lines.push_back(line);
     }
+  
     for (std::string l : lines) {
         processLine(l);
     }
