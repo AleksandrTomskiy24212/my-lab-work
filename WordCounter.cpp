@@ -8,15 +8,19 @@ bool WordCounter::compareWordFrequency(std::pair<std::string, int> a,
     return a.second > b.second;
 }
 
+void WordCounter::processLine(const std::string& line) {
+    std::vector<std::string> words = extractor.extractWords(line);
+    for (const std::string& word : words) {
+        wordCount[word]++;
+        totalWords++;
+    }
+}
+
 void WordCounter::processFile(std::string inputFilename) {
     std::ifstream inputFile(inputFilename);
     std::string line;
     while (std::getline(inputFile, line)) {
-        std::vector<std::string> words = extractor.extractWords(line);
-        for (const std::string& word : words) {
-            wordCount[word]++;
-            totalWords++;
-        }
+        processLine(line);
     }
 }
 
