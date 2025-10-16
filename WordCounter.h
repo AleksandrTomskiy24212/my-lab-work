@@ -3,27 +3,22 @@
 
 #include <map>
 #include <string>
-#include <list>
 #include <vector>
 #include <utility>
-#include "WordExtractor.h" 
+#include "WordExtractor.h"
 
 class WordCounter {
 private:
     std::map<std::string, int> wordCount;
     int totalWords = 0;
-    WordExtractor extractor; 
-    std::list<std::string> lines;
+    WordExtractor extractor;
 
     static bool compareWordFrequency(std::pair<std::string, int> a,
                                      std::pair<std::string, int> b);
 
-    std::vector<std::pair<std::string, int>> getSortedWords();
-
 public:
-    void processLine(std::string line);
     void processFile(std::string inputFilename);
-    std::vector<std::pair<std::string, int>> getSortedWordsPublic();
+    std::vector<std::pair<std::string, int>> getSortedWords();
     int getTotalWords() const;
 };
 
