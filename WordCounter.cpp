@@ -20,7 +20,9 @@ void WordCounter::processFile(std::string inputFilename) {
     std::ifstream inputFile(inputFilename);
     std::string line;
     while (std::getline(inputFile, line)) {
+      
         processLine(line);
+      
     }
 }
 
